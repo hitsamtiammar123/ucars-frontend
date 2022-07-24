@@ -5,6 +5,12 @@
   width: 240px;
   height: 100vh;
   font-family: 'Source Sans Pro';
+  position: fixed;
+
+  a, a:hover, a:focus, a:active{
+    text-decoration: none;
+    color: #8C8C8C;
+  }
 
   .logo{
    width: 102.94px;

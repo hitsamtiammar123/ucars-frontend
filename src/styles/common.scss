@@ -32,6 +32,10 @@
   color: #323435;
 }
 
+.white-color{
+  color: white;
+}
+
 .gray-color{
   color: #8C8C8C;
 }
@@ -67,4 +71,28 @@
 .centered{
   align-items: center;
   justify-content: center;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.semi-bold{
+  font-weight: 500;
+}
+
+.font-size-24{
+  font-size: 24px;
+}
+
+.font-size-14{
+  font-size: 14px;
+}
+
+.font-size-20{
+  font-size: 20px;
+}
+
+.font-size-16{
+  font-size: 16px;
 }
