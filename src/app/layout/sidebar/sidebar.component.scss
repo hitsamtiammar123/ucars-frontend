@@ -1,0 +1,26 @@
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 16px;
+  width: 240px;
+  height: 100vh;
+  font-family: 'Source Sans Pro';
+
+  .logo{
+   width: 102.94px;
+   height: 28px;
+  }
+
+  .item-list{
+    .item{
+      min-height: 52px;
+      border-radius: 6px;
+      padding: 14px 22px;
+
+      &.active{
+        background-color: #0F5EDD;
+        color: white;
+      }
+    }
+  }
+}
