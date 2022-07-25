@@ -8,6 +8,11 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { ListdataComponent } from './layout/listdata/listdata.component';
 import { BrandComponent } from './page/brand/brand.component';
 import { ModelComponent } from './page/model/model.component';
+import { DetailComponent } from './page/detail-brand/detail.component';
+import { BreadcumbComponent } from './component/breadcumb/breadcumb.component';
+import { DetailModelComponent } from './page/detail-model/detail-model.component';
+import { AddmodalComponent } from './component/addmodal/addmodal.component';
+import { AddmodelmodalComponent } from './component/addmodelmodal/addmodelmodal.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { ModelComponent } from './page/model/model.component';
     SidebarComponent,
     ListdataComponent,
     BrandComponent,
-    ModelComponent
+    ModelComponent,
+    DetailComponent,
+    BreadcumbComponent,
+    DetailModelComponent,
+    AddmodalComponent,
+    AddmodelmodalComponent
   ],
   imports: [
     BrowserModule,

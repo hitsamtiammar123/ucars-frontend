@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { AddmodelmodalComponent } from '../../component/addmodelmodal/addmodelmodal.component';
 
 @Component({
   selector: 'app-model',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) {
+    this.addBrandClick = this.addBrandClick.bind(this);
+  }
+  detailLink():string{
+    return '/model/detail'
+  }
 
   ngOnInit(): void {
+  }
+
+  addBrandClick(): void{
+    this.modalService.open(AddmodelmodalComponent, { backdrop: 'static'});
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-listdata',
@@ -7,13 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListdataComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   @Input()title: string = '';
   @Input()btnText: string = '';
   @Input()inputPlaceholder: string = '';
+  @Input()viewDetailLink: () => string = () => '';
+  @Input()onAddBrandClicked:() => void = () => {};
 
   ngOnInit(): void {
+  }
+
+  addBrandClicked(): void{
+    this.onAddBrandClicked();
   }
 
 }

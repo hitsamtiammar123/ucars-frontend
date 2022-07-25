@@ -1,0 +1,61 @@
+.breadcumb{
+  min-width: 99px;
+  max-width: 50%;
+  height: 34px;
+  border-radius: 48px;
+
+  @mixin dot {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  @mixin innerDot {
+    border-radius: inherit;
+    width: 8px;
+    height: 8px;
+  }
+
+  &.active{
+    background-color: rgba(206, 247, 226, 1);
+
+    .title{
+      color: rgba(31, 123, 77, 1);
+    }
+
+    .dot{
+      @include dot;
+      border: 2px rgba(31, 123, 77, 1) solid;
+
+      .inner-dot{
+        @include innerDot();
+        background-color: rgba(31, 123, 77, 1);
+      }
+    }
+  }
+
+  $unactive-text: rgba(143, 10, 21, 1);
+  $unactive-bg: rgba(199, 135, 135, 1);
+
+  &.unactive{
+    background-color: $unactive-bg;
+
+    .title{
+      color: $unactive-text;
+    }
+
+    .dot{
+      @include dot;
+      border: 2px $unactive-text solid;
+
+      .inner-dot{
+        @include innerDot();
+        background-color: $unactive-text;
+      }
+    }
+  }
+
+}

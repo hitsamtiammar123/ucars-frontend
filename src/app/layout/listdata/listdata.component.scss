@@ -1,5 +1,20 @@
+.fixed-heading{
+  background-color: white;
+  position: fixed;
+  width: calc(100% - 240px);
+}
+
+.heading{
+  height: 64px;
+  border-bottom-color: #F1F1F1;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+
 .list-heading{
   margin: 0px 24px;
+  position: relative;
 
   .btn-brand{
     border-radius: 4px;
@@ -29,8 +44,13 @@
   }
 }
 
+.separator{
+  margin-top: calc(64px + 40px + 20px);
+}
+
 .list-container{
   padding: 0px 24px;
+
   .list-item{
     border-radius: 4px;
     height: 124px;
