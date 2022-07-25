@@ -12,28 +12,32 @@
         <div class="d-flex flex-column col-6">
           <span class="gray-color font-size-14 mb-3 pe-4">Brand Name</span>
           <div class="me-4">
-            <input [(ngModel)]="brand.name" type="text" class="form-control">
+            <input (ngModelChange)="modelChange('name')($event)" [(ngModel)]="brand.name" type="text" class="form-control">
+            <p *ngIf="error_list.name" class="text-danger">{{error_list.name}}</p>
           </div>
         </div>
         <div class="d-flex flex-column col-6">
           <span class="gray-color font-size-14 mb-3">Brand Status</span>
-          <select [(ngModel)]="brand.status" class="form-select">
-            <option [ngValue]="i.val" *ngFor="let i of status_list">
+          <select (ngModelChange)="modelChange('status')($event)" [(ngModel)]="brand.status" class="form-select">
+            <option [selected]="i.val === null" [ngValue]="i.val" *ngFor="let i of status_list">
               {{i.label}}
             </option>
           </select>
+          <p *ngIf="error_list.status" class="text-danger">{{error_list.status}}</p>
         </div>
       </div>
       <div class="d-flex flex-row my-5">
         <div class="d-flex flex-column col-12">
           <span class="gray-color font-size-14 mb-3">Brand Image url</span>
-          <input [(ngModel)]="brand.image_url" class="form-control" />
+          <input (ngModelChange)="modelChange('image_url')($event)" [(ngModel)]="brand.image_url" class="form-control" />
+          <p *ngIf="error_list.image_url" class="text-danger">{{error_list.image_url}}</p>
         </div>
       </div>
       <div class="d-flex flex-row my-5">
         <div class="d-flex flex-column col-12">
           <span class="gray-color font-size-14 mb-3">Brand description</span>
-          <textarea [(ngModel)]="brand.description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea  (ngModelChange)="modelChange('description')($event)" [(ngModel)]="brand.description" class="form-control" rows="3"></textarea>
+          <p *ngIf="error_list.description" class="text-danger">{{error_list.description}}</p>
         </div>
       </div>
     </div>

@@ -17,7 +17,8 @@ export class DetailComponent implements OnInit {
   product: Brand | null = null;
   product_name: string = '';
   product_obj: BrandInput = new BrandInput();
-  status_list: any = this.util.status_list
+  status_list: any = this.util.status_list;
+  error_list: any = {};
 
   constructor(
     private http: HttpClient,
@@ -62,15 +63,38 @@ export class DetailComponent implements OnInit {
       });
   }
 
-  onDataChange(e: KeyboardEvent, key: string): void{
-    console.log({ e });
-    this.saveChange();
-    // if(this.product){
-    //   this.product.name = e.target.value;
-    // }
+  modelChange(key: string){
+    const self = this;
+    return function(event: any){
+      delete self.error_list[key]
+    }
+  }
+
+  private validateInput(){
+    let counter: number = 0;
+    if(!this.product?.name){
+      this.error_list.name = 'Name cannot be empty';
+      counter++;
+    }
+    if(!this.product?.description){
+      this.error_list.description = 'Description cannot be empty';
+      counter++;
+    }
+    if(this.product?.status === null){
+      this.error_list.status = 'Please select your status';
+      counter++;
+    }
+    if(!this.product?.image_url){
+      this.error_list.image_url = 'Image url cannot be empty';
+      counter++;
+    }
+    return counter;
   }
 
   onsaveChange(){
+    if(this.validateInput() > 0){
+      return;
+    }
     this.saveChange();
   }
 

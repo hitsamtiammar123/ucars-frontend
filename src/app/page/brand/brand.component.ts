@@ -77,9 +77,7 @@ export class BrandComponent implements OnInit {
   }
 
   onSearchKeyUp(event: any): void{
-    console.log({ event });
     const value = event.target.value;
-    console.log({ value, event })
     if(event.code === 'Enter'){
       this.getData(1, value);
     }

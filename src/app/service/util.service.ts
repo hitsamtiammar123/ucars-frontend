@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilService {
-  readonly BASE_URL = 'http://127.0.0.1:8000'
+  // readonly BASE_URL = BASE_URL;
+  readonly BASE_URL = environment.baseUrl
 
   status_list: Array<Object> =  [
     {'label':'Select Status', 'val': null },
