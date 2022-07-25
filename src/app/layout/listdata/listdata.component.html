@@ -1,28 +1,20 @@
 <div class="fixed-heading">
-  <div class="heading"></div>
   <div class="d-flex flex-row my-4 sticky-top justify-content-between list-heading">
     <span class="font-size-24 bold">{{title}}</span>
     <div class="d-flex flex-row input-container light-grey">
       <img class="icon me-2" src="assets/svg/search.svg"/>
-      <input [placeholder]="inputPlaceholder" type="text" class="input" />
+      <input (keyup)="onKeyUp($event)" [placeholder]="inputPlaceholder" type="text" class="input" />
     </div>
     <button (click)="addBrandClicked()" class="btn blue white-color btn-brand font-size-14">{{btnText}}</button>
   </div>
 </div>
 <div class="separator">
-  <div *ngFor="let i of [1,2,3,4,5]" class="d-flex flex-column  list-container">
-    <div class="d-flex flex-row justify-content-around align-items-center list-item">
-      <img class="logo" src="https://cdn.motor1.com/images/mgl/bpAqn/s3/logo.jpg"/>
-      <span class="title font-20 primary-black-color">Toyota</span>
-      <div class="d-flex flex-column justify-content-between">
-        <span class="font-size-14 primary-dark-color">Last Update</span>
-        <span class="font-size-14 gray-color">25/12/2022</span>
-      </div>
-      <div class="d-flex centered status-container flex-row">
-        <span class="green dot me-3"></span>
-        <span class="font-size-16 green-color semi-bold">Active</span>
-      </div>
-      <a [routerLink]="viewDetailLink()" class="btn btn-light font-size-14 btn-detail">View Details</a>
-    </div>
+  <div *ngIf="!loading; else elseLoading">
+    <ng-content select="[contentItem]" ></ng-content>
   </div>
+  <ng-template #elseLoading>
+    <div class="d-flex centered" *ngIf="loading">
+      <img class="loading" src="assets/svg/Gear-loading.svg"/>
+    </div>
+  </ng-template>
 </div>

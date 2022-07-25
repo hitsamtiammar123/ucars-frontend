@@ -2,6 +2,38 @@
   inputPlaceholder="Search car brand"
   btnText="Add Brand"
   title="CAR BRAND LIST"
-  [viewDetailLink]="detailLink"
   [onAddBrandClicked]="addBrandClick"
-></app-listdata>
+  [loading]="loading"
+  (onSearchKeyUp)="onSearchKeyUp($event)"
+>
+  <div contentItem>
+    <div *ngFor="let product of products"  class="d-flex flex-column list-container">
+      <div class="d-flex flex-row justify-content-around align-items-center list-item">
+        <img class="logo" src="{{product.image_url}}"/>
+        <span [ngClass]="{'inactive': !product.status}" class="title font-20 primary-black-color">{{product.name}}</span>
+        <div class="d-flex flex-column justify-content-between">
+          <span class="font-size-14 primary-dark-color">Last Update</span>
+          <span class="font-size-14 gray-color">{{formatDate(product.updated_at)}}</span>
+        </div>
+        <div class="d-flex centered status-container flex-row">
+          <span [ngClass]="{'green': product.status, 'gray': !product.status  }" class="dot me-3"></span>
+          <span [ngClass]="{'green-color': product.status, 'gray-color': !product.status  }" class="font-size-16 green-color semi-bold">
+            {{product.status ?  'Active' : 'Inactive'}}
+          </span>
+        </div>
+        <div>
+          <a [routerLink]="detailLink(product)" class="btn btn-light font-size-14 btn-detail">View Details</a>
+          <button (click)="deleteProduct(product)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex centered mt-3">
+      <ngb-pagination
+      *ngIf="collectionSize > 0"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="paginationChange($event)"
+      [collectionSize]="collectionSize"></ngb-pagination>
+    </div>
+  </div>
+</app-listdata>

@@ -6,8 +6,8 @@ const routes: Routes = [
   { path: 'brand', component: BrandPage },
   { path: '', redirectTo: '/brand', pathMatch: 'full' },
   { path: 'model', component: ModelPage },
-  { path: 'brand/detail', component: DetailPage },
-  { path: 'model/detail', component: DetailModelPage}
+  { path: 'brand/detail/:id', component: DetailPage },
+  { path: 'model/detail/:id', component: DetailModelPage}
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {DetailComponent as BaseComponent} from '../detail-brand/detail.component'
 
 @Component({
@@ -8,9 +9,6 @@ import {DetailComponent as BaseComponent} from '../detail-brand/detail.component
 })
 export class DetailModelComponent extends BaseComponent implements OnInit {
 
-  constructor() {
-    super();
-  }
 
   override ngOnInit(): void {
   }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-listdata',
@@ -15,12 +14,18 @@ export class ListdataComponent implements OnInit {
   @Input()inputPlaceholder: string = '';
   @Input()viewDetailLink: () => string = () => '';
   @Input()onAddBrandClicked:() => void = () => {};
+  @Input()loading: boolean = false;
+  @Output()onSearchKeyUp = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
 
   addBrandClicked(): void{
     this.onAddBrandClicked();
+  }
+
+  onKeyUp(e: any):void{
+    this.onSearchKeyUp.emit(e);
   }
 
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,12 +27,14 @@ import { AddmodelmodalComponent } from './component/addmodelmodal/addmodelmodal.
     BreadcumbComponent,
     DetailModelComponent,
     AddmodalComponent,
-    AddmodelmodalComponent
+    AddmodelmodalComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
